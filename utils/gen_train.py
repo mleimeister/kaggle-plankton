@@ -1,6 +1,10 @@
+"""
+Converts images from the training set to 56x56 pixels using the built-in
+"convert" command line program.
+"""
+
 import os
 import sys
-import subprocess
 
 if len(sys.argv) < 3:
     print "Usage: python gen_train.py input_folder output_folder"
@@ -13,11 +17,14 @@ cmd = "convert -resize 56x56\! "
 classes = os.listdir(fi)
 
 os.chdir(fo)
+
 for cls in classes:
+
     try:
         os.mkdir(cls)
     except:
-        pass
+        continue
+
     imgs = os.listdir(fi + cls)
     for img in imgs:
         md = ""

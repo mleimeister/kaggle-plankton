@@ -1,8 +1,12 @@
+"""
+Use a pretrained Caffe model to predict the class of images in the test set
+and write results to a submission file.
+"""
+
 import csv
 import sys
 import numpy as np
 import caffe
-from skimage.transform import rotate
 
 net = caffe.Classifier('/home/matthias/kaggle/plankton/networks/plankton_vgg_test.prototxt', '/home/matthias/kaggle/plankton/models/plankton_vgg_train_iter_30000.caffemodel', image_dims=(56, 56), channel_swap=(2, 1, 0), raw_scale=255)
 

@@ -1,5 +1,8 @@
 # kaggle-plankton
-This repository contains model training for the [Kaggle National Datascience Bowl](http://www.kaggle.com/c/datasciencebowl/) on plankton image classification. It uses convolutional neural networks trained with [Caffe](http://caffe.berkeleyvision.org/).
+This repository contains model training for the [Kaggle National Datascience Bowl](http://www.kaggle.com/c/datasciencebowl/) on plankton image classification. The task is to classify underwater microscopic images into one of 121 different plankton classes. Some examples can be seen in the picture below. The submission uses deep convolutional neural networks trained similar to [1] trained with the [Caffe](http://caffe.berkeleyvision.org/) framework.
+
+![alt text](https://kaggle2.blob.core.windows.net/competitions/kaggle/3978/media/plankton%20schmorgasborg.jpg)
+Source: https://www.kaggle.com/c/datasciencebowl/data
 
 Model training
 --------------
@@ -27,12 +30,12 @@ The model traning was done by alternating steps of data augmentation and fine-tu
 | 11    | fc 121, softmax    		|
 
 
-The final architecture achieved a multiclass loss of 0.693548/0.704775 on the public/private part of the test set, resulting in rank 58 on the [private leaderboard](https://www.kaggle.com/c/datasciencebowl/leaderboard/private). 
+The final architecture achieved a multiclass log loss of 0.693548/0.704775 on the public/private part of the test set, resulting in rank 58 on the [private leaderboard](https://www.kaggle.com/c/datasciencebowl/leaderboard/private).
 
 
 
 References
 ------
-Karen Simonyan and Andrew Zisserman. Very deep convolutional networks for large-scale image recognition. [http://arxiv.org/pdf/1409.1556v5.pdf](http://arxiv.org/pdf/1409.1556v5.pdf)
+[1] Karen Simonyan and Andrew Zisserman. Very deep convolutional networks for large-scale image recognition. [http://arxiv.org/pdf/1409.1556v5.pdf](http://arxiv.org/pdf/1409.1556v5.pdf)
 
 

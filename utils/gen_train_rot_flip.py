@@ -1,6 +1,10 @@
+"""
+Convert images from training set to 56x56 pixels and augment the dataset
+by generating flipped versions and rotations by 5 specified angles.
+"""
+
 import os
 import sys
-import subprocess
 import random
 
 random.seed(0)
@@ -16,11 +20,13 @@ cmd = "convert -resize 56x56\! "
 classes = os.listdir(fi)
 
 os.chdir(fo)
+
 for cls in classes:
+
     try:
         os.mkdir(cls)
     except:
-        pass
+        continue
 
     imgs = os.listdir(fi + cls)
 

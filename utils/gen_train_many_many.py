@@ -1,6 +1,11 @@
+"""
+Convert images from training set to 56x56 pixels and augment the dataset
+by generating flipped versions, rotations by 5 specified angles and apply random
+scaling and image shearing at random angles.
+"""
+
 import os
 import sys
-import subprocess
 import random
 
 random.seed(0)
@@ -52,14 +57,16 @@ for cls in classes:
         for deg in [0, 60, 120, 180, 240, 300]:
             for nRep in range(5):
                 scale_factor = random.randint(48, 64)
-                md = "convert -resize " + str(scale_factor) + "x" + str(scale_factor) + "\! -gravity center -background white -extent 56x56 "
+                md = "convert -resize " + str(scale_factor) + "x" + str(scale_factor) + \
+                     "\! -gravity center -background white -extent 56x56 "
                 md += "-rotate " + str(deg)
                 md += " -gravity center -crop 56x56+0+0 +repage "
                 md += fi + cls + "/" + img
                 basename = os.path.basename(img)
                 filename = os.path.splitext(basename)
                 img_without_ext = filename[0]
-                md += " " + fo + cls + "/" + img_without_ext + "_scaled_" + str(scale_factor) + "_" + str(deg) + "deg.jpg"
+                md += " " + fo + cls + "/" + img_without_ext + "_scaled_" + str(scale_factor) + "_" \
+                      + str(deg) + "deg.jpg"
                 os.system(md)
 
     print "Creating scaled sheared versions"
@@ -68,14 +75,16 @@ for cls in classes:
             scale_factor = random.randint(48, 64)
             shear_x = random.randint(-10, 10)
             shear_y = random.randint(-10, 10)
-            md = "convert -resize " + str(scale_factor) + "x" + str(scale_factor) + "\! -gravity center -background white -extent 56x56 "
+            md = "convert -resize " + str(scale_factor) + "x" + str(scale_factor) \
+                 + "\! -gravity center -background white -extent 56x56 "
             md += "-shear " + str(shear_x) + "x" + str(shear_y)
             md += " -gravity center -crop 56x56+0+0 +repage "
             md += fi + cls + "/" + img
             basename = os.path.basename(img)
             filename = os.path.splitext(basename)
             img_without_ext = filename[0]
-            md += " " + fo + cls + "/" + img_without_ext + "_scaled_" + str(scale_factor) + "_" + str(shear_x) + "x" + str(shear_y) + "shear.jpg"
+            md += " " + fo + cls + "/" + img_without_ext + "_scaled_" + str(scale_factor) \
+                  + "_" + str(shear_x) + "x" + str(shear_y) + "shear.jpg"
             os.system(md)
 
 

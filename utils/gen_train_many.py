@@ -1,6 +1,11 @@
+"""
+Convert images from training set to 56x56 pixels and augment the dataset
+by generating flipped versions, rotations by 11 specified angles and apply
+scaling with fixed factors.
+"""
+
 import os
 import sys
-import subprocess
 import random
 
 random.seed(0)
@@ -49,8 +54,6 @@ for cls in classes:
 
     print "Creating scaled versions for " + cls
     for img in imgs:
-        #for num in range(10):
-        #    scale_factor = random.randint(76, 116)
         for scale_factor in [48, 50, 52, 54, 58, 60, 62, 64]:
             md = "convert -resize " + str(scale_factor) + "x" + str(scale_factor) + "\! -gravity center -background white -extent 56x56 "
             md += fi + cls + "/" + img
