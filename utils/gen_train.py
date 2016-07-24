@@ -22,7 +22,7 @@ for cls in classes:
 
     try:
         os.mkdir(cls)
-    except:
+    except OSError:
         continue
 
     imgs = os.listdir(fi + cls)
@@ -32,7 +32,3 @@ for cls in classes:
         md += fi + cls + "/" + img
         md += " " + fo + cls + "/" + img
         os.system(md)
-	
-
-
-

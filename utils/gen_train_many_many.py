@@ -24,7 +24,7 @@ os.chdir(fo)
 for cls in classes:
     try:
         os.mkdir(cls)
-    except:
+    except OSError:
         pass
 
     imgs = os.listdir(fi + cls)
