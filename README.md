@@ -1,8 +1,7 @@
 # kaggle-plankton
 This repository contains model training for the [Kaggle National Datascience Bowl](http://www.kaggle.com/c/datasciencebowl/) on plankton image classification. The task is to classify underwater microscopic images into one of 121 different plankton classes. Some examples can be seen in the picture below. The submission uses deep convolutional neural networks trained similar to [1] trained with the [Caffe](http://caffe.berkeleyvision.org/) framework.
 
-![alt text](https://kaggle2.blob.core.windows.net/competitions/kaggle/3978/media/plankton%20schmorgasborg.jpg)
-Source: https://www.kaggle.com/c/datasciencebowl/data
+![alt text](https://kaggle2.blob.core.windows.net/competitions/kaggle/3978/media/plankton%20schmorgasborg.jpg "Source: https://www.kaggle.com/c/datasciencebowl/data")
 
 Model training
 --------------
